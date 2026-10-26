@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="KAIROSEED first system layer — browser-only governance simulation.">
+<title>KAIROSEED | First Governed System Layer</title>
+<style>
+:root{color-scheme:dark;--bg:#0a1321;--panel:#112438;--line:#365268;--fg:#edf5ff;--muted:#b1c5d8;--mint:#74e4cc;--gold:#f3ce8a}
+*{box-sizing:border-box}body{margin:0;font:16px/1.55 system-ui,sans-serif;background:radial-gradient(circle at 75% 5%,#203e59,transparent 32%),var(--bg);color:var(--fg)}
+a{color:var(--mint)}header,main,footer{max-width:1100px;margin:auto;padding:22px}header{display:flex;justify-content:space-between;align-items:center;gap:14px}
+h1{font-size:clamp(36px,6vw,65px);line-height:1.12;max-width:850px;margin:12px 0 20px}h2{margin:0 0 14px;font-size:25px}h3{margin:20px 0 10px}
+p{color:var(--muted)}.kicker{color:var(--mint);text-transform:uppercase;letter-spacing:.12em;font-size:13px;font-weight:800}.hero{padding:45px 0}
+.notice{padding:15px;background:#29271c;color:#ffe8ad;border:1px solid #907d54;border-radius:12px;margin-bottom:32px}
+.path{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:20px 0 38px}.path span{padding:8px 11px;border:1px solid var(--line);border-radius:10px;background:var(--panel);font-size:13px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px;min-width:0}
+label{display:block;margin-top:14px;margin-bottom:4px;font-weight:700}select,input,textarea{width:100%;background:#0a192a;color:var(--fg);border:1px solid #618199;padding:10px;border-radius:9px;font:inherit}
+textarea{min-height:86px;resize:vertical}button{border:0;border-radius:9px;background:var(--mint);color:#092227;padding:11px;font:inherit;font-weight:800;cursor:pointer}
+button.secondary{background:#27465d;color:var(--fg);border:1px solid #62849b}.buttons{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+pre{background:#081522;padding:12px;border-radius:9px;overflow-wrap:anywhere;white-space:pre-wrap;font-size:12px;border:1px solid var(--line)}
+.signal{padding:14px;margin:12px 0;border:1px solid #526c80;border-radius:10px;background:#0b1e2d;min-height:55px}
+.metrics{display:flex;gap:14px}.metrics div{flex:1;border:1px solid var(--line);border-radius:10px;padding:14px}.metrics strong{display:block;font-size:28px}
+small{color:var(--muted)}li{padding:4px 0;color:var(--muted)}.limits{margin:28px 0}.limits p{max-width:950px}
+footer{border-top:1px solid var(--line);color:var(--muted)}[hidden]{display:none!important}
+@media(max-width:740px){.grid{grid-template-columns:1fr}.hero{padding-top:20px}}
+</style>
+</head>
+<body>
+<header><strong>KAIROSEED / FIRST LAYER</strong><a href="../index.html">Portfolio home</a></header>
+<main>
+<section class="hero"><span class="kicker">Research · Simulation · 2026</span>
+<h1>Useful intelligence. Human-governed action.</h1>
+<p>Explore the first stage of KAIROSEED × AURORA: a two-model proposal fixture, a bounded demonstration grant, a policy gate, fictional state transitions and same-browser evidence replay.</p></section>
+<div class="notice" role="note"><strong>SIMULATION ONLY — PRODUCTION NO.</strong> No real AI model, verified human identity, server authorization, external execution, payments, persistent storage or independent third-party certification. Anyone controlling this page can alter its code and data.</div>
+<section aria-label="Governed decision path"><h2>The proposed governance path</h2>
+<div class="path"><span>Model A / Model B fixtures</span> → <span>GOVANA checks</span> → <span>GAT demo grant</span> → <span>PEP</span> → <span>JIREH synthetic transition</span> → <span>Ledger receipt</span> → <span>STRANGER-like replay</span></div></section>
+<div class="grid">
+<section class="card" aria-labelledby="propose"><h2 id="propose">01 · Propose</h2>
+<p>The fixture models can only provide proposal data. Labels are not authenticated identities.</p>
+<label for="model">Model label</label><select id="model"><option>Model A (fixture)</option><option>Model B (fixture)</option></select>
+<label for="action">Simulation action</label><select id="action"><option value="add_note">Add local note</option><option value="use_credits">Use synthetic credits</option></select>
+<div id="note-field"><label for="note">Note (max 160 characters)</label><textarea id="note" maxlength="160">Build → Test → Verify → Authorize.</textarea></div>
+<div id="amount-field" hidden><label for="amount">Fictional credits (1–30)</label><input id="amount" type="number" min="1" max="30" step="1" value="25"></div>
+<div class="buttons"><button id="preview">Preview</button><button id="grant" class="secondary">Issue DEMO grant</button><button id="attempt">Attempt via PEP</button></div>
+<h3>Proposal and grant fixture</h3><pre id="payload" aria-live="polite"></pre>
+<p>Try changing the amount or model after granting. The gate should deny the altered proposal.</p>
+</section>
+<section class="card" aria-labelledby="observe"><h2 id="observe">02 · Observe</h2>
+<p>Only the in-memory synthetic state below can change.</p>
+<div class="metrics"><div><small>Fictional credits</small><strong id="credits">100</strong></div><div><small>Accepted receipts</small><strong id="count">0</strong></div></div>
+<h3>PEP decision</h3><div class="signal" id="decision" role="status" aria-live="polite">Default: DENY.</div>
+<h3>Same-browser replay</h3><div class="signal" id="verification" role="status" aria-live="polite">Not checked.</div>
+<div class="buttons"><button id="verify" class="secondary">Replay synthetic ledger</button><button id="reset" class="secondary">Reset fixture</button></div>
+<h3>Receipts</h3><ol id="receipts"><li>No accepted transitions.</li></ol>
+<h3>Notes</h3><pre id="notes">(none)</pre>
+</section></div>
+<section class="limits"><h2>03 · Evidence and the next gate</h2>
+<p>This is a functional browser teaching layer, not a security boundary. Synthetic fixtures test a limited authorization algorithm, but the browser operator can forge grants and rewrite state. Even a passing local replay is not independent evidence. No actual frontier model is connected.</p>
+<p>Future integration must treat local Qwen or hosted frontier LLM output as <strong>untrusted proposals</strong>. A separately deployed service would need authenticated human approval, isolated least-privileged execution, one-time grant consumption, trusted identity and an independently protected verifier. Deployment remains blocked pending the existing Pages failure diagnosis and separately scoped authorization.</p>
+<p><strong>Claim ≤ Evidence ≤ Established Scope.</strong> Capability ≠ Permission. Model proposal ≠ Human approval.</p></section>
+</main>
+<footer>© 2026 KAIROSEED × AURORA · Research teaching prototype · Not independently certified.</footer>
+<script type="module">
+import {freshState,issueDemoGrant,attempt,replay} from './governance.mjs';
+const el=id=>document.getElementById(id);
+let state=freshState(),grant=null,nextGrant=0;
+const proposal=()=>({actor:el('model').value,action:el('action').value,args:el('action').value==='add_note'?{text:el('note').value}:{amount:Number(el('amount').value)}});
+function showPayload(){el('payload').textContent=JSON.stringify({proposal:proposal(),demoGrant:grant||'none'},null,2)}
+function showState(){
+el('credits').textContent=String(state.credits);el('count').textContent=String(state.receipts.length);
+el('notes').textContent=state.notes.length?state.notes.join('\n'):'(none)';
+el('receipts').replaceChildren();
+if(state.receipts.length===0){const li=document.createElement('li');li.textContent='No accepted transitions.';el('receipts').append(li)}
+for(const r of state.receipts){const li=document.createElement('li');li.textContent='#'+r.sequence+' '+r.actor+' '+r.action+' '+r.id+' · '+r.before+' → '+r.after;el('receipts').append(li)}
+}
+el('action').addEventListener('change',()=>{el('note-field').hidden=el('action').value!=='add_note';el('amount-field').hidden=el('action').value!=='use_credits';showPayload()});
+for(const id of ['model','note','amount'])el(id).addEventListener('input',showPayload);
+el('preview').addEventListener('click',showPayload);
+el('grant').addEventListener('click',()=>{const result=issueDemoGrant(proposal(),++nextGrant,Date.now());grant=result.ok?result.grant:null;el('decision').textContent=result.ok?'DEMO grant issued in this browser; no identity verification.':'DENY — '+result.reason;showPayload()});
+el('attempt').addEventListener('click',()=>{const result=attempt(state,proposal(),grant,Date.now());state=result.state;el('decision').textContent=result.decision+' — '+result.reason;el('verification').textContent='Not checked.';showState()});
+el('verify').addEventListener('click',()=>{const r=replay(state);el('verification').textContent=(r.ok?'PASS':'FAIL')+' — '+r.reason+' (same browser only)'});
+el('reset').addEventListener('click',()=>{state=freshState();grant=null;nextGrant=0;showPayload();showState();el('decision').textContent='Default: DENY.';el('verification').textContent='Not checked.'});
+showPayload();showState();
+</script>
+</body></html>
